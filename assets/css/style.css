@@ -1,0 +1,261 @@
+/* Font integration */
+@font-face {
+    font-family: Poppins-Regular;
+    src: url('../fonts/poppins/Poppins-Regular.ttf');
+}
+@font-face {
+    font-family: Poppins-Medium;
+    src: url('../fonts/poppins/Poppins-Medium.ttf');
+}
+@font-face {
+    font-family: Poppins-SemiBold;
+    src: url('../fonts/poppins/Poppins-SemiBold.ttf');
+}
+@font-face {
+    font-family: Poppins-Bold;
+    src: url('../fonts/poppins/Poppins-Bold.ttf');
+}
+
+:root{
+    --font-family-regular: Poppins-Regular;
+    --font-weight-regular: 400;
+    --font-family-medium: Poppins-Medium;
+    --font-weight-medium: 500;
+    --font-family-semibold: Poppins-SemiBold;
+    --font-weight-semibold: 600;
+    --font-family-bold: Poppins-Bold;
+    --font-weight-bold: 700;
+
+    --blood-color: #8a0303;
+    --light-red-color: #ec9c9c;
+    --white-color: #ffffff;
+    --light-white-color: #ececec;
+    --black-color: #000000;
+    --light-black-color: #212121;
+}
+
+/* Header start */
+header{
+    background-color: var(--blood-color);
+}
+.cust_nav{
+    padding: 10px 0;
+}
+.logo{
+    color: var(--white-color);
+}
+.logo:hover{
+    color: var(--light-white-color);
+}
+.menu{}
+.menu ul{}
+.menu ul li{}
+.menu ul li a{
+    padding: 0 15px !important;
+    font-family: var(--font-family-regular);
+    font-size: 16px;
+    font-weight: var(--font-weight-regular);
+    color: var(--light-red-color) !important;
+    letter-spacing: 1px;
+    /* text-transform: uppercase; */
+}
+.menu ul li:last-child a{
+    padding-right: 0 !important;
+}
+.menu ul li a.active{
+    color: var(--white-color) !important;
+}
+.menu ul li a:hover {
+    color: var(--light-white-color) !important;
+}
+/* Header end */
+
+/* Banner start */
+.banner{
+    /* background-image: url('../images/banner/banner_bg.jpeg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover; */
+    
+}
+.banner_content{
+    padding: 100px 0;
+}
+.banner_content h1{
+    color: var(--white-color);
+}
+/* Banner end */
+
+
+
+/* Register Page start */
+.register_section{
+    background-color: transparent;
+}
+.register-panel{
+    margin-top: 5%;
+}
+
+/* Register Page end */
+
+
+/* Login Page start */
+.login_section{
+    background-color: transparent;
+}
+.panel {
+    margin-bottom: 20px;
+    background-color: #fff;
+    border: 1px solid transparent;
+    border-radius: 4px;
+    -webkit-box-shadow: 0 1px 1px rgb(0 0 0 / 5%);
+    box-shadow: 0 1px 1px rgb(0 0 0 / 5%);
+}
+.panel-default {
+    border-color: var(--blood-color);
+    /* border-color: #ddd; */
+}
+.login-panel {
+    margin-top: 25%;
+}
+.panel-heading {
+    padding: 10px 15px;
+    border-bottom: 1px solid transparent;
+    border-top-right-radius: 3px;
+    border-top-left-radius: 3px;
+}
+.panel-default>.panel-heading {
+    color: var(--light-red-color);
+    background-color: var(--blood-color);
+    border-color: var(--blood-color);
+    /* color: #333;
+    background-color: #f5f5f5;
+    border-color: #ddd; */
+}
+.panel-title {
+    margin-top: 0;
+    margin-bottom: 0;
+    font-size: 16px;
+    color: inherit;
+}
+
+.panel-body {
+    padding: 15px;
+}
+.form-group {
+    margin-bottom: 15px;
+}
+.form-select{
+    color: #6d757d;
+}
+.form-control:focus,
+.form-select:focus {
+    /* border-color: #66afe9; */
+    border-color: var(--blood-color);
+    outline: 0;
+    -webkit-box-shadow: inset 0 1px 1px rgb(0 0 0 / 8%), 0 0 8px rgb(138 3 3 / 60%);
+    box-shadow: inset 0 1px 1px rgb(0 0 0 / 8%), 0 0 8px rgb(138 3 3 / 60%);
+}
+.checkbox {
+    display: block;
+    min-height: 20px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    padding-left: 20px;
+}
+.checkbox label {
+    display: inline;
+    font-weight: 400;
+    cursor: pointer;
+}
+label {
+    display: inline-block;
+    margin-bottom: 5px;
+    font-weight: 700;
+}
+.checkbox input[type=checkbox] {
+    float: left;
+    margin-left: -20px;
+}
+input[type=checkbox] {
+    margin: 6px 0 0;
+    margin-top: 1px \9;
+    line-height: normal;
+}
+.cust-btn {
+    color: var(--light-red-color);;
+    background-color: var(--blood-color);
+    border-color: var(--blood-color);
+    /* background-color: #5cb85c;
+    border-color: #4cae4c; */
+}
+.cust-btn:hover{
+    color: #fff;
+    background-color: var(--blood-color);
+    border-color: var(--blood-color);
+    /* background-color: #47a447;
+    border-color: #398439; */
+}
+.cust-btn:focus {
+    color: var(--white-color);
+    background-color: var(--blood-color);
+    border-color: var(--blood-color);
+    outline: 0;
+    box-shadow: 0 0 0 0.25rem rgba(138, 3, 3, .5);
+}
+.btn-lg {
+    padding: 10px 16px;
+    font-size: 18px;
+    line-height: 1.33;
+    border-radius: 6px;
+}
+.btn-block {
+    display: block;
+    width: 100%;
+    padding-left: 0;
+    padding-right: 0;
+}
+/* Login Page end */
+
+
+/*Doner List page*/
+.ui-tabs-vertical { width: 100%; }
+.ui-widget.ui-widget-content {
+    border: none;
+}
+.ui-tabs-vertical .ui-tabs-nav {
+    width: 15% !important;
+}
+.ui-tabs-vertical .ui-tabs-panel {
+    padding-top: 0 !important;
+    width: 80% !important;
+}
+.ui-tabs-vertical .ui-tabs-nav { padding: .2em .1em .2em .2em; float: left; width: 12em; }
+.ui-tabs-vertical .ui-tabs-nav li { clear: left; width: 100%; border-bottom-width: 1px !important; border-right-width: 0 !important; margin: 0 -1px .2em 0; }
+.ui-tabs-vertical .ui-tabs-nav li a { display:block; }
+.ui-tabs-vertical .ui-tabs-nav li.ui-tabs-active { padding-bottom: 0; padding-right: .1em; border-right-width: 1px; }
+.ui-tabs-vertical .ui-tabs-panel { padding: 1em; float: right; width: 40em;}
+
+
+.doner_info{
+    text-align: center;
+    background-color: #cdcdcd;
+    border: 1px solid red;
+}
+.doner_img{}
+.doner_img img{}
+
+.doner_info h2{
+    font-family: var(--font-family-bold);
+    font-weight: var(--font-weight-bold);
+    font-size: 32px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+.doner_info p{
+    font-family: var(--font-family-regular);
+    font-weight: var(--font-weight-regular);
+    font-size: 16px;
+    margin: 0;
+    text-align: left;
+}
