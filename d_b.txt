@@ -67,9 +67,9 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `display_name`, `user_image`, `email`, `password`, `user_role`) VALUES
-(1, 'Asad Islam', '../assets/images/doners/default.png', 'asad.islam382@gmail.com', 'c4ca4238a0b923820dcc509a6f75849b', 2),
-(2, 'AR Rasel', '../assets/images/doners/default.png', 'test@test.com', 'c4ca4238a0b923820dcc509a6f75849b', 2),
-(3, 'Joya', '../assets/images/doners/stevenc.jpeg', 'fjoya@test.com', 'c4ca4238a0b923820dcc509a6f75849b', 2);
+(1, 'Jone Doe', '../assets/images/doners/default.png', 'test1@test.com', 'c4ca4238a0b923820dcc509a6f75849b', 2),
+(2, 'Eric E.', '../assets/images/doners/default.png', 'test@test.com', 'c4ca4238a0b923820dcc509a6f75849b', 2),
+(3, 'Merissa C.', '../assets/images/doners/stevenc.jpeg', 'test2@test.com', 'c4ca4238a0b923820dcc509a6f75849b', 2);
 
 -- --------------------------------------------------------
 
@@ -96,9 +96,9 @@ CREATE TABLE `users_info` (
 --
 
 INSERT INTO `users_info` (`id`, `u_id`, `fname`, `lname`, `contact_number`, `gender`, `b_group_id`, `contact_address`, `additional_info`, `created_at`, `status`) VALUES
-(1, 1, 'Asad', 'Islam', '+8801847082653', 0, 1, 'House: 201, Road 9/A (new)\r\nWest Dhanmondi, Dhaka', 'No Additional Data Added', '2022-08-11 06:07:24', 1),
-(2, 2, 'AR', 'Rasel', '12312312312', 0, 6, 'House: 201, Road 9/A (new)\r\nWest Dhanmondi, Dhaka', 'I will add later', '2022-08-11 13:51:18', 1),
-(3, 3, 'Farzana', 'Emran', '01231231231', 1, 1, 'House: 201, Road 9/A (new)\r\nWest Dhanmondi, Dhaka', 'New text', '2022-08-12 11:38:36', 1);
+(1, 1, 'Jone', 'Doe', '+01231231233', 0, 1, 'SSB, Banani Dhaka', 'No Additional Data Added', '2022-08-11 06:07:24', 1),
+(2, 2, 'Eric', 'E.', '12312312312', 0, 6, 'SSB, Banani Dhaka', 'I will add later', '2022-08-11 13:51:18', 1),
+(3, 3, 'Merissa', 'C.', '01231231231', 1, 1, 'SSB, Banani Dhaka', 'New text', '2022-08-12 11:38:36', 1);
 
 --
 -- Indexes for dumped tables
