@@ -3,7 +3,6 @@ session_start();
 include_once 'db/connection.php';
 
 if (isset($_SESSION['username'])){
-
 }else{
     if(isset($_COOKIE["auth"])){
 
@@ -11,6 +10,12 @@ if (isset($_SESSION['username'])){
         $_SESSION['msg'] = "Oops... Login first";
         header("Location: ../login.php?status=error");
     }
+}
+
+if ($_SESSION['userrole'] != 1){
+    $_SESSION['msg'] = "You don't have Access to this page";
+    header("Location: admin.php?status=warning");
+    exit(0);
 }
 
 $sql = "SELECT * FROM blood_group";

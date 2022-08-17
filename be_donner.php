@@ -81,7 +81,7 @@ include_once 'includes/header.php';
                               <!-- <label for="lname" class="form-label">Last Name</label> -->
                               <input type="text" class="form-control lname" id="lname" name="lname" placeholder="Last Name" required>
                             </div>
-                            
+
                             <div class="col-md-6">
                               <!-- <label for="display_name" class="form-label">Display Name</label> -->
                               <input type="text" class="form-control display_name" id="display_name" name="display_name" placeholder="Display Name" required>
@@ -138,7 +138,7 @@ include_once 'includes/header.php';
                               <!-- <label for="confirm_password" class="form-label">Confirm Password</label> -->
                               <input type="password" class="form-control confirm_password" id="confirm_password" name="confirm_password" placeholder="Confirm Password" required>
                             </div>
-                            
+
                             <div class="col-12">
                               <button type="submit" class="btn btn-primary cust-btn w-100" name="register_btn">Register</button>
                             </div>

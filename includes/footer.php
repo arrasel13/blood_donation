@@ -17,7 +17,35 @@
         } );
     </script>
 
-    <?php include_once './includes/toastr.php'; ?>
+    <script type='text/javascript'>
+        $(document).ready(function(){
+
+            $('.d_details').click(function(){
+
+                var blood_group_id = $(this).data('id');
+
+                // AJAX request
+                $.ajax({
+                    url: 'donerDetails.php',
+                    type: 'post',
+                    data: {bg_id: blood_group_id},
+                    success: function(response){
+                        // Add response in Modal body
+                        $('.modal-body').html(response);
+
+                        // Display Modal
+                        $('#dDetailsModal').modal('show');
+                    }
+                });
+            });
+        });
+    </script>
+
+    <?php
+        include_once 'includes/doner_form.php';
+        include_once './includes/toastr.php';
+    ?>
+
 
 </body>
 </html>

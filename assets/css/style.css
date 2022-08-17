@@ -218,44 +218,211 @@ input[type=checkbox] {
 /* Login Page end */
 
 
-/*Doner List page*/
-.ui-tabs-vertical { width: 100%; }
-.ui-widget.ui-widget-content {
-    border: none;
-}
-.ui-tabs-vertical .ui-tabs-nav {
-    width: 15% !important;
-}
-.ui-tabs-vertical .ui-tabs-panel {
-    padding-top: 0 !important;
-    width: 80% !important;
-}
-.ui-tabs-vertical .ui-tabs-nav { padding: .2em .1em .2em .2em; float: left; width: 12em; }
-.ui-tabs-vertical .ui-tabs-nav li { clear: left; width: 100%; border-bottom-width: 1px !important; border-right-width: 0 !important; margin: 0 -1px .2em 0; }
-.ui-tabs-vertical .ui-tabs-nav li a { display:block; }
-.ui-tabs-vertical .ui-tabs-nav li.ui-tabs-active { padding-bottom: 0; padding-right: .1em; border-right-width: 1px; }
-.ui-tabs-vertical .ui-tabs-panel { padding: 1em; float: right; width: 40em;}
+/*Doners*/
 
-
+.doners{}
+.doner_info{
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
 .doner_info{
     text-align: center;
-    background-color: #cdcdcd;
-    border: 1px solid red;
+    padding: 20px;
+    position: relative;
+    overflow: hidden;
+    background: #fff;
+    box-shadow: 0 0 29px 0 rgb(68 88 144 / 12%);
+    transition: all 0.3s ease-in-out;
+    border-radius: 5px;
+    z-index: 1;
 }
-.doner_img{}
-.doner_img img{}
+.doner_image{}
+.doner_image img{
+    width: 100%;
+    height: 295px;
+    object-fit: cover;
+}
 
-.doner_info h2{
+.doner_info::before {
+    content: "";
+    position: absolute;
+    right: -20px;
+    top: -60px;
+    width: 50px;
+    height: 50px;
+    background-color: var(--light-red-color);
+    border-radius: 50%;
+    border-top-right-radius: 0;
+    transform: rotate(-45deg);
+    float: left;
+    margin-top: 50px;
+    margin-left: 20px;
+    transition: all 0.3s;
+    z-index: -1;
+}
+.doner_info:hover::before {
+    /*background: #3498db;*/
+    background-color: #8a0303ad;
+    right: -5px;
+    top: -50px;
+    width: 130%;
+    height: 100%;
+    border-radius: 0%;
+    transform: rotate(90deg);
+    z-index: 1;
+}
+.doner_info .doner_detail{
+    position: absolute;
+    padding-top: 15px;
+    top: 0;
+    visibility: hidden;
+    opacity: 0;
+    z-index: 2;
+    transition: all 0.3s;
+}
+.doner_info:hover .doner_detail{
+    visibility: visible;
+    opacity: 1;
+}
+.doner_detail .d_name{
+    color: var(--white-color);
     font-family: var(--font-family-bold);
     font-weight: var(--font-weight-bold);
     font-size: 32px;
-    margin-top: 10px;
+    margin-top: 0px;
     margin-bottom: 10px;
 }
-.doner_info p{
+.doner_detail p{
+    margin-top: 5px;
+    margin-bottom: 0;
+    color: var(--white-color);
+    font-family: var(--font-family-regular);
+    font-weight: var(--font-weight-regular);
+    font-size: 14px;
+    text-align: left;
+}
+.doner_detail .d_details{
+    margin-top: 30px;
+    margin-bottom: 0;
     font-family: var(--font-family-regular);
     font-weight: var(--font-weight-regular);
     font-size: 16px;
-    margin: 0;
-    text-align: left;
+    color: var(--black-color);
+    background-color: var(--white-color);
+    border: 1px solid var(--white-color);
+    text-transform: capitalize;
+}
+
+.nav-link {
+    color: var(--light-red-color);
+}
+.nav-link:hover, .nav-link:focus {
+    color: var(--blood-color);
+}
+.nav-pills .nav-link.active, .nav-pills .show > .nav-link {
+    color: var(--white-color);
+    background-color: var(--blood-color);
+}
+
+/*.no_doner{*/
+/*    margin-top: 50px;*/
+/*    font-family: var(--font-family-regular);*/
+/*    font-weight: var(--font-weight-regular);*/
+/*    font-size: 24px;*/
+/*    color: var(--blood-color);*/
+/*    text-transform: uppercase;*/
+/*    text-align: center;*/
+/*    animation: zoomdesign 1s ease-in-out infinite alternate;*/
+/*}*/
+/*@keyframes zoomdesign {*/
+/*    from{*/
+        /*transform: scale(1);*/
+        /*transform: rotate(0deg);*/
+        /*text-shadow: 0 0 10px var(--blood-color), 0 0 20px var(--blood-color), 0 0 30px var(--blood-color), 0 0 40px var(--blood-color),0 0 50px var(--blood-color);*/
+        /*text-shadow: 0 0 10px #0fa, 0 0 20px #0fa, 0 0 30px #0fa, 0 0 40px #0fa,0 0 50px #0fa;*/
+/*    }*/
+/*    to {*/
+/*        !*transform: scale(1.05);*!*/
+/*        transform: rotate(5deg);*/
+/*        !*text-shadow: 0 0 60px var(--blood-color), 0 0 70px var(--blood-color);*!*/
+/*        !*text-shadow: 0 0 60px #0fa, 0 0 70px #0fa;*!*/
+/*    }*/
+/*}*/
+
+.no_doner{
+    margin-top: 50px;
+    font-family: var(--font-family-regular);
+    font-weight: var(--font-weight-regular);
+    font-size: 24px;
+    color: var(--blood-color);
+    text-align: center;
+    text-transform: uppercase;
+    background-image: linear-gradient(
+            -225deg,
+            #231557 0%,
+            #44107a 29%,
+            #ff1361 67%,
+            #fff800 100%
+    );
+    background-size: auto auto;
+    background-clip: border-box;
+    background-size: 200% auto;
+    color: #fff;
+    background-clip: text;
+    text-fill-color: transparent;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: textclip 2s linear infinite;
+    display: inline-block;
+    /*font-size: 190px;*/
+}
+@keyframes textclip {
+    to {
+        background-position: 200% center;
+    }
+}
+
+.no_doner_p1{
+    font-family: var(--font-family-regular);
+    font-weight: var(--font-weight-regular);
+    font-size: 16px;
+    color: var(--blood-color);
+    text-align: center;
+    text-transform: uppercase;
+    background-image: linear-gradient( -225deg, #0c00ff 0%, #ffffff 29%, #00ff24 67%, #00fdff 100% );
+    background-size: auto auto;
+    background-clip: border-box;
+    background-size: 200% auto;
+    color: #fff;
+    background-clip: text;
+    text-fill-color: transparent;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: textclip 2s linear infinite;
+    display: inline-block;
+}
+.no_doner_p{
+    font-family: var(--font-family-regular);
+    font-weight: var(--font-weight-regular);
+    font-size: 16px;
+    color: var(--blood-color);
+    text-align: center;
+    text-transform: uppercase;
+    background-image: linear-gradient(
+            -225deg,
+            #231557 0%,
+            #44107a 29%,
+            #ff1361 67%,
+            #fff800 100%
+    );
+    background-size: auto auto;
+    background-clip: border-box;
+    background-size: 200% auto;
+    color: #fff;
+    background-clip: text;
+    text-fill-color: transparent;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: textclip 2s linear infinite;
+    display: inline-block;
 }

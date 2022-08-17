@@ -7,7 +7,8 @@
     <meta name="description" content="" />
     <meta name="author" content="" />
     <title>Dashboard - Blood Donation</title>
-    <link href="https://cdn.jsdelivr.net/npm/simple-datatables@latest/dist/style.css" rel="stylesheet" />
+<!--    <link href="https://cdn.jsdelivr.net/npm/simple-datatables@latest/dist/style.css" rel="stylesheet" />-->
+    <link rel="stylesheet" href="css/datatable-style.css">
     <link rel="stylesheet" href="css/toastr.min.css">
     <link href="css/styles.css" rel="stylesheet" />
 </head>

@@ -14,6 +14,7 @@
         if ($login_query->num_rows > 0){
             $l_query = $login_query->fetch_assoc();
 
+            $_SESSION['userid'] = $l_query['id'];
             $_SESSION['username'] = $l_query['display_name'];
             $_SESSION['userrole'] = $l_query['user_role'];
             if ($rememberLogin == 1){

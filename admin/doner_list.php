@@ -13,25 +13,33 @@ if (isset($_SESSION['username'])){
     }
 }
 
+if ($_SESSION['userrole'] != 1){
+    $_SESSION['msg'] = "You don't have Access to this page";
+    header("Location: admin.php?status=warning");
+    exit(0);
+}
+
 if (isset($_POST['saveDoner_btn'])){
     $fname = $_POST['fname'];
     $lname = $_POST['lname'];
     $display_name = $_POST['display_name'];
     $email = $_POST['email'];
     $contact_no = $_POST['contact_no'];
+    $dob = date("d-m-Y", strtotime($_POST['dob']));
+    $age = $_POST['age'];
     $gender = $_POST['gender'];
     $blood_group = $_POST['blood_group'];
     $contact_address = $_POST['contact_address'];
     $additional_info = $_POST['additional_info'];
     $password = md5($_POST['password']);
     $c_password = md5($_POST['confirm_password']);
-    $donner_status = $_POST['donner_status'];
-//    $donner_image = $_FILES['donner_image'];
+    $doner_status = $_POST['doner_status'];
+    $doner_role = $_POST['doner_role'];
 
 //    For Image Upload
-    $target_dir = "../assets/images/doners/";
-    $imageFileName = basename($_FILES["donner_image"]["name"]);
-    $imageFileTempName = $_FILES["donner_image"]["tmp_name"];
+    $target_dir = "assets/img/doners/";
+    $imageFileName = basename($_FILES["doner_image"]["name"]);
+    $imageFileTempName = $_FILES["doner_image"]["tmp_name"];
 
     $target_file = $target_dir . $imageFileName;
     $uploadOk = 1;
@@ -45,19 +53,23 @@ if (isset($_POST['saveDoner_btn'])){
 
     if ($password === $c_password){
 
-        $sql1 = "INSERT INTO users (display_name, user_image, email, password) VALUES ('$display_name','$target_file','$email','$password') ";
+        $sql1 = "INSERT INTO users (display_name, user_image, email, password, user_role) VALUES ('$display_name','$target_file','$email','$password', '$doner_role') ";
 
         if ($conn->query($sql1) === TRUE){
             $last_id = $conn->insert_id;
             move_uploaded_file($imageFileTempName,$target_file);
 
-            $sql2 = "INSERT INTO users_info (u_id, fname, lname, contact_number, gender, b_group_id, contact_address, additional_info, status) VALUES ('$last_id', '$fname', '$lname', '$contact_no', '$gender', '$blood_group', '$contact_address', '$add_info', $donner_status) ";
+            $sql2 = "INSERT INTO users_info (u_id, fname, lname, contact_number, dob, age, gender, b_group_id, contact_address, additional_info, status) VALUES ('$last_id', '$fname', '$lname', '$contact_no', '$dob', $age, '$gender', '$blood_group', '$contact_address', '$add_info', $doner_status) ";
+
             if ($conn->query($sql2) === TRUE){
                 //  $result = "";
-                $_SESSION['msg'] = "Registration successfully completed";
+                $_SESSION['msg'] = "Registration completed";
                 header("Location: doner_list.php?status=success");
                 exit(0);
             }else{
+                $sql3 = "DELETE FROM users WHERE id=$last_id";
+                $run_query = $conn->query($sql3);
+
                 $_SESSION['msg'] = "User Info not inserted";
                 header("Location: doner_list.php?status=error");
                 exit(0);
@@ -74,7 +86,7 @@ if (isset($_POST['saveDoner_btn'])){
     }
 }
 
-$select_user_sql = "SELECT u.id uid, u.email uemail, ui.fname f_name, ui.lname l_name, ui.contact_number contact_no, ui.gender ugender, ui.status ustatus, bg.b_group_name ubgroup FROM users u, users_info ui, blood_group bg WHERE u.id = ui.u_id AND ui.b_group_id = bg.id";
+$select_user_sql = "SELECT u.id uid, u.email uemail, ui.fname f_name, ui.lname l_name, ui.contact_number contact_no, ui.gender ugender, ui.age uage, ui.status ustatus, bg.b_group_name ubgroup FROM users u, users_info ui, blood_group bg WHERE u.id = ui.u_id AND ui.b_group_id = bg.id";
 $query_user_info = $conn->query($select_user_sql);
 
 
@@ -107,6 +119,7 @@ include_once 'includes/header.php';
                         <th>Email</th>
                         <th>Mobile</th>
                         <th>Gender</th>
+                        <th>Age</th>
                         <th>Blood Group</th>
                         <th>Status</th>
                         <th>Action</th>
@@ -131,6 +144,7 @@ include_once 'includes/header.php';
                                 echo "Female";
                             endif;
                         ?></td>
+                        <td><?= $user_info['uage']; ?></td>
                         <td><?= $user_info['ubgroup']; ?></td>
                         <td><?php
                             if ($user_info['ustatus'] == 1):
@@ -140,10 +154,11 @@ include_once 'includes/header.php';
                             endif;
                             ?></td>
                         <td class="d-flex">
-                            <a href="doner_details.php?id=<?php echo $user_info['uid']; ?>" class="btn btn-primary btn-sm me-1"><i class="fa-solid fa-eye"></i></a>
-                            <a href="blood_group_edit.php?id=<?php echo $user_info['uid']; ?>" class="btn btn-info btn-sm me-1"><i class="fa-solid fa-pen-to-square"></i></a>
+                            <a href="doner_details.php?id=<?php echo $user_info['uid']; ?>" class="btn btn-primary btn-sm me-1" title="View Info"><i class="fa-solid fa-eye"></i></a>
+                            <a href="doner_info_edit.php?id=<?php echo $user_info['uid']; ?>" class="btn btn-info btn-sm me-1" title="Edit Info"><i class="fa-solid fa-pen-to-square"></i></a>
+                            <a href="doner_password_edit.php?id=<?php echo $user_info['uid']; ?>" class="btn btn-warning btn-sm me-1" title="Edit Password"><i class="fa-solid fa-key"></i></a>
                             <form action="blood_group_delete.php" method="post">
-                                <button class="btn btn-danger btn-sm d_category" name="d_b_group" value="<?php echo $b_group['id']; ?>"><i class="fa-solid fa-trash"></i></button>
+                                <button class="btn btn-danger btn-sm d_category" name="d_b_group" value="<?php echo $b_group['id']; ?>" title="Delete Info"><i class="fa-solid fa-trash"></i></button>
                             </form>
                         </td>
                     </tr>

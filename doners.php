@@ -26,7 +26,7 @@ session_start();
                               <div class="col-lg-4">
                                   <div class="doner_info">
                                       <div class="doner_img">
-                                          <img class="img-fluid" src="assets/images/doners/stevenc.jpeg" alt="">
+                                          <img class="img-fluid" src="admin/assets/img/doners/stevenc.jpeg" alt="">
                                       </div>
                                       <h2>Doner Name</h2>
                                       <p>Mobile: 12312312312</p>

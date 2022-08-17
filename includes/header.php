@@ -1,4 +1,10 @@
 <?php
+session_start();
+include_once 'admin/db/connection.php';
+
+$select_blood_group = "SELECT * FROM blood_group";
+$b_group_query = $conn->query($select_blood_group);
+
   function isPageActive($currect_page){
     $url_array =  explode('/', $_SERVER['REQUEST_URI']) ;
     $url = end($url_array);
@@ -48,11 +54,14 @@
                     <a class="nav-link <?php isPageActive('about.php');?>" href="about.php">About Us</a>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link <?php isPageActive('doners.php');?>" href="doners.php">Doner List</a>
+                    <a class="nav-link <?php isPageActive('all_doner.php');?>" href="all_doner.php">Doner List</a>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link <?php isPageActive('be_donner.php');?>" href="be_donner.php">Become a Doner</a>
+                    <a class="nav-link" href="#" type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#becomeDoner">Become a Doner</a>
                   </li>
+<!--                  <li class="nav-item">-->
+<!--                    <a class="nav-link --><?php //isPageActive('be_donner.php');?><!--" href="be_donner.php">Become a Doner</a>-->
+<!--                  </li>-->
                   <li class="nav-item">
                     <a class="nav-link <?php isPageActive('login.php');?>" href="login.php"><i class="fa-solid fa-arrow-right-to-bracket"></i></a>
                   </li>
